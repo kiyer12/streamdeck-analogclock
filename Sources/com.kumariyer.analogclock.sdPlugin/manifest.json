@@ -2,26 +2,26 @@
   "Actions": [
     {
       "Icon": "action/images/actionimage",
-      "Name": "Analog Clock",
+      "Name": "K2 Digital Clock",
       "States": [
         {
           "Image": "action/images/image"
         }
       ],
       "SupportedInMultiActions": false,
-      "Tooltip": "Show a nice analog clock",
-      "UUID": "com.elgato.analogclock.action"
+      "Tooltip": "Show a digital clock",
+      "UUID": "com.kumariyer.analogclock.action"
     }
   ],
   "SDKVersion": 2,
-  "Author": "Elgato",
+  "Author": "Kumar Iyer",
   "CodePath": "index.html",
   "PropertyInspectorPath": "propertyinspector/index.html",
   "Description": "Always be on time.",
-  "Name": "Analog Clock",
+  "Name": "K2 Clock",
   "Icon": "pluginIcon",
   "URL": "https://www.elgato.com/gaming/stream-deck",
-  "Version": "1.6",
+  "Version": "1.0",
   "OS": [
     {
       "Platform": "mac",

@@ -5,22 +5,22 @@ function connected (jsn) {
     debugLog('Connected Plugin:', jsn);
 
     /** subscribe to the willAppear event */
-    $SD.on('com.elgato.analogclock.action.willAppear', jsonObj =>
+    $SD.on('com.kumariyer.analogclock.action.willAppear', jsonObj =>
         action.onWillAppear(jsonObj)
     );
-    $SD.on('com.elgato.analogclock.action.willDisappear', jsonObj =>
+    $SD.on('com.kumariyer.analogclock.action.willDisappear', jsonObj =>
         action.onWillDisappear(jsonObj)
     );
-    $SD.on('com.elgato.analogclock.action.keyUp', jsonObj =>
+    $SD.on('com.kumariyer.analogclock.action.keyUp', jsonObj =>
         action.onKeyUp(jsonObj)
     );
-    $SD.on('com.elgato.analogclock.action.sendToPlugin', jsonObj =>
+    $SD.on('com.kumariyer.analogclock.action.sendToPlugin', jsonObj =>
         action.onSendToPlugin(jsonObj)
     );
 }
 
 var action = {
-    type: 'com.elgato.analogclock.action',
+    type: 'com.kumariyer.analogclock.action',
     cache: {},
 
     getContextFromCache: function (ctx) {
@@ -169,7 +169,11 @@ function AnalogClock (jsonObj) {
 
     function drawClock (jsn) {
         clock.drawClock();
-        clockface.text === true && $SD.api.setTitle(context, new Date().toLocaleTimeString(), null);
+        var now = new Date();
+        var hours = now.getHours() % 12;
+        var minutes = now.getMinutes();
+        var timeString = hours.toString() + ":" + minutes.toString();
+        clockface.text === true && $SD.api.setTitle(context, timeString, null);
         $SD.api.setImage(
             context,
             clock.getImageData()
